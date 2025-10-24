@@ -1,0 +1,153 @@
+.product-card {
+  &__cover {
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__badge {
+    position: absolute;
+    @include body-sm;
+    color: $clr-white;
+    background-color: $clr-accent;
+    padding: 2px 8px;
+    border-radius: 4px;
+    left: 16px;
+    top: 16px;
+    z-index: 10;
+  }
+
+  &__actions {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff99;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &__action {
+    color: $clr-black;
+    transition: color 0.2s ease-in-out;
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+
+    &--active {
+      color: $clr-accent;
+    }
+
+    &:disabled {
+      color: $clr-gray;
+      cursor: not-allowed;
+    }
+  }
+
+  &__overlay {
+    height: 100%;
+    flex-direction: column;
+    justify-content: end;
+    display: none;
+
+    &-btn {
+      font-weight: $fw-bold;
+      text-transform: uppercase;
+      font-size: 8px;
+      text-align: center;
+      background-color: $clr-light-gray;
+      width: 100%;
+      padding-top: 11px;
+      padding-bottom: 11px;
+    }
+  }
+
+  &__title {
+    @include heading-3;
+
+    & {
+      display: block;
+      margin-bottom: 16px;
+      color: $clr-black;
+    }
+  }
+
+  &__price {
+    @include heading-4;
+
+    & {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+
+    &-primary {
+      color: $clr-accent;
+
+      &--crossed {
+        color: $clr-gray;
+        text-decoration: line-through;
+        margin-right: 10px;
+      }
+    }
+
+    &-discounted {
+      color: $clr-accent;
+    }
+  }
+
+  &:hover {
+    .product-card__actions {
+      opacity: 1;
+    }
+  }
+
+  &--disabled {
+    opacity: 0.5;
+
+    .product-card__actions {
+      display: none;
+    }
+
+    .product-card__title {
+      cursor: default;
+    }
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .product-card {
+    &__cover {
+      margin-bottom: 6px;
+    }
+
+    &__badge {
+      left: 4px;
+      top: 4px;
+    }
+
+    &__actions {
+      display: none;
+    }
+
+    &__overlay {
+      display: flex;
+    }
+
+    &__title {
+      margin-bottom: 4px;
+    }
+
+    &__price {
+      font-size: 12px;
+      font-weight: $fw-regular;
+    }
+  }
+}

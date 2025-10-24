@@ -1,0 +1,133 @@
+.swiper-wrapper {
+  height: 646px;
+}
+
+.slider {
+  margin-top: -1px;
+
+  &__container {
+    position: relative;
+  }
+
+  &__control {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 18px;
+    bottom: 23px;
+    width: 100%;
+    z-index: 10;
+  }
+
+  &__controller {
+    width: 7px;
+    height: 7px;
+    background-color: $clr-white;
+    border: 1px solid $clr-white;
+    border-radius: 50%;
+    display: block;
+    flex: none;
+    transition: all 0.2s ease-in-out;
+
+    &--active {
+      width: 16px;
+      height: 16px;
+      background-color: transparent;
+    }
+
+    &:not(:last-child) {
+      margin-right: 14px;
+    }
+  }
+
+  .slide {
+    width: 100%;
+    height: 100%;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0 39px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    box-sizing: border-box;
+
+    &__title {
+      @include heading-1;
+
+      & {
+        color: $clr-white;
+        width: fit-content;
+        margin-bottom: 16px;
+      }
+    }
+
+    &__price {
+      @include heading-2;
+
+      & {
+        color: $clr-white;
+        display: block;
+        width: fit-content;
+        margin-bottom: 48px;
+      }
+    }
+
+    &__action {
+      @include btn-lg-transparent;
+    }
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .slider {
+    .slide {
+      background-position: top 0% right 15%;
+    }
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .swiper-wrapper {
+    height: 354px;
+  }
+
+  .slider {
+    margin-top: 0;
+    border-radius: 8px;
+    overflow: hidden;
+
+    &__control {
+      bottom: 8px;
+    }
+
+    &__controller {
+      width: 4px;
+      height: 4px;
+
+      &--active {
+        width: 9px;
+        height: 9px;
+      }
+
+      &:not(:last-child) {
+        margin-right: 6px;
+      }
+    }
+
+    .slide {
+      padding: 26px 8px;
+      justify-content: end;
+
+      &__title {
+        margin-bottom: 3px;
+      }
+
+      &__price {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

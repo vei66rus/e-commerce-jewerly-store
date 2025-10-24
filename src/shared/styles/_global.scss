@@ -1,0 +1,62 @@
+@use 'variables' as *;
+
+a {
+  text-decoration: none;
+  color: $clr-black;
+}
+
+button,
+input,
+select,
+textarea {
+  all: unset;
+}
+
+input[type='text']:not(:disabled),
+input[type='email']:not(:disabled),
+textarea {
+  cursor: text;
+}
+
+button,
+select,
+input[type='checkbox'] {
+  cursor: pointer;
+}
+
+body {
+  font-family: $font-family;
+}
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: #{$ff-face};
+  src: url(@shoppe/shared/assets/fonts/DMSans-Regular.ttf);
+  font-weight: #{$fw-regular};
+  font-style: normal;
+}
+
+@font-face {
+  font-family: #{$ff-face};
+  src: url(@shoppe/shared/assets/fonts/DMSans-Medium.ttf);
+  font-weight: #{$fw-medium};
+  font-style: normal;
+}
+
+@font-face {
+  font-family: #{$ff-face};
+  src: url(@shoppe/shared/assets/fonts/DMSans-Bold.ttf);
+  font-weight: #{$fw-bold};
+  font-style: normal;
+}
+
+@media (max-width: $bp-xl) {
+  body {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}

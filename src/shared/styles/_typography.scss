@@ -1,0 +1,65 @@
+@use './variables' as *;
+
+@mixin heading-1 {
+  font-size: 33px;
+  font-weight: $fw-medium;
+  line-height: normal;
+
+  @media (max-width: $bp-mobile) {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: $fw-regular;
+  }
+}
+
+@mixin heading-2 {
+  font-size: 26px;
+  font-weight: $fw-regular;
+  line-height: 35px;
+
+  @media (max-width: $bp-mobile) {
+    font-size: 16px;
+    line-height: 27px;
+  }
+}
+
+@mixin heading-3 {
+  font-size: 20px;
+  font-weight: $fw-regular;
+  line-height: 26px;
+
+  @media (max-width: $bp-mobile) {
+    font-size: 14px;
+    line-height: normal;
+  }
+}
+
+@mixin heading-4 {
+  font-size: 20px;
+  font-weight: $fw-medium;
+  line-height: 20px;
+}
+
+@mixin heading-5 {
+  font-size: 16px;
+  font-weight: $fw-regular;
+  line-height: 27px;
+}
+
+@mixin body-lg {
+  font-size: 16px;
+  font-weight: $fw-bold;
+  line-height: normal;
+}
+
+@mixin body-md {
+  font-size: 14px;
+  font-weight: $fw-regular;
+  line-height: normal;
+}
+
+@mixin body-sm {
+  font-size: 12px;
+  font-weight: $fw-regular;
+  line-height: 20px;
+}

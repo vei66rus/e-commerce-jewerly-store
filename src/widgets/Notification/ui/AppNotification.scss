@@ -1,0 +1,27 @@
+.notification {
+  background-color: $clr-light-gray;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  box-sizing: border-box;
+  padding: 24px 24px 24px 39px;
+  border-top: 2px solid $clr-success;
+
+  &__icon {
+    margin-right: 16px;
+  }
+
+  &__text {
+    @include heading-5;
+  }
+
+  &__link {
+    @include body-lg;
+    & {
+      color: $clr-accent;
+      margin-left: auto;
+      text-transform: uppercase;
+    }
+  }
+}

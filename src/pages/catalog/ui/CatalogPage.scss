@@ -1,0 +1,141 @@
+.catalog {
+  &__container {
+    padding-top: 96px;
+    padding-bottom: 130px;
+  }
+
+  &__title {
+    @include heading-1;
+
+    & {
+      margin-bottom: 39px;
+    }
+  }
+
+  &__toggler {
+    @include delails-link;
+    align-items: center;
+    justify-content: start;
+    display: none;
+    margin-bottom: 19px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__filters {
+    flex: 0 0 auto;
+    margin-right: 36px;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 24px;
+    row-gap: 70px;
+    margin-bottom: 59px;
+  }
+
+  &__loader {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+  }
+
+  &__empty {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      @include heading-3;
+      & {
+        color: $clr-gray;
+      }
+    }
+  }
+}
+
+@media (max-width: $bp-lg) {
+  .catalog {
+    &__container {
+      position: relative;
+    }
+
+    &__toggler {
+      display: flex;
+    }
+
+    &__filters {
+      box-sizing: border-box;
+      position: absolute;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-top: 16px;
+    }
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .catalog__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .catalog {
+    &__container {
+      padding-top: 24px;
+      padding-bottom: 72px;
+    }
+
+    &__title {
+      margin-bottom: 15px;
+    }
+
+    &__toggler {
+      font-size: 12px;
+      font-weight: $fw-regular;
+
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    &__filters {
+      z-index: 20;
+      background-color: $clr-white;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -16px;
+      height: 100%;
+      width: calc(100% + 32px);
+    }
+
+    &__items {
+      column-gap: 16px;
+      row-gap: 24px;
+      margin-bottom: 0;
+    }
+
+    &__pagination {
+      display: none;
+    }
+  }
+}

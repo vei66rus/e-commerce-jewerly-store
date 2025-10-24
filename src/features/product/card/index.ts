@@ -1,0 +1,1 @@
+export { default as AppProductCard } from './ui/AppProductCard.vue';

@@ -1,0 +1,130 @@
+.tabs {
+  &__controls {
+    border-bottom: 1px solid $clr-gray;
+  }
+
+  &__control {
+    @include heading-3;
+
+    & {
+      color: $clr-dark-gray;
+      padding-bottom: 34px;
+      margin-bottom: -1px;
+      border-bottom: 1px solid transparent;
+    }
+
+    &--active {
+      color: $clr-black;
+      border-bottom: 1px solid $clr-black;
+    }
+
+    &:not(:last-child) {
+      margin-right: 96px;
+    }
+  }
+
+  &__content {
+    padding-top: 39px;
+  }
+
+  .description-content {
+    &__paragraph {
+      @include heading-5;
+      color: $clr-dark-gray;
+    }
+  }
+
+  .information-content {
+    &__item {
+      @include heading-5;
+      color: $clr-dark-gray;
+
+      span {
+        color: $clr-black;
+        margin-right: 10px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .reviews-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 87px;
+
+    &__reviews-title {
+      @include heading-3;
+      & {
+        margin-bottom: 76px;
+      }
+    }
+
+    .review {
+      &:not(:first-child) {
+        margin-top: 24px;
+      }
+
+      &:not(:last-child) {
+        padding-bottom: 39px;
+        border-bottom: 1px solid $clr-gray;
+      }
+
+      &__author {
+        @include heading-3;
+        & {
+          margin-bottom: 16px;
+        }
+      }
+
+      &__rating {
+        margin-bottom: 24px;
+
+        &-star {
+          &:not(:last-child) {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      &__text {
+        @include heading-5;
+        color: $clr-dark-gray;
+      }
+    }
+  }
+}
+
+@media (max-width: $bp-lg) {
+  .tabs {
+    .reviews-content {
+      display: flex;
+      flex-direction: column-reverse;
+
+      &__reviews-title {
+        margin-bottom: 21px;
+      }
+
+      &__add-review-block {
+        margin-bottom: 62px;
+      }
+    }
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .tabs {
+    &__controls {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__control {
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+    }
+  }
+}

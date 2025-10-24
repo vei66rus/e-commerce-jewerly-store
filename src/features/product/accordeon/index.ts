@@ -1,0 +1,1 @@
+export { default as AppProductAccordeon } from './ui/AppProductAccordeon.vue';

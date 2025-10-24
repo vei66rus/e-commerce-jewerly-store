@@ -1,0 +1,245 @@
+.shopping-cart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 25;
+  width: 360px;
+  height: 100dvh;
+  background-color: $clr-white;
+  border-left: 1px solid $clr-gray;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out;
+
+  &__overlay {
+    position: fixed;
+    width: 100dvw;
+    height: 100dvh;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  &__close {
+    display: none;
+    position: absolute;
+    top: 19px;
+    left: 16px;
+
+    svg {
+      rotate: 90deg;
+    }
+  }
+
+  &__wrapper {
+    padding: 72px 36px 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  &__title {
+    @include heading-5;
+    margin-bottom: 17px;
+  }
+
+  &__total-qty {
+    @include body-sm;
+    color: $clr-dark-gray;
+    margin-bottom: 3px;
+    line-height: 167%;
+  }
+
+  &__items {
+    overflow-y: auto;
+    flex: 1 1 auto;
+    padding-bottom: 20px;
+
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cart-item {
+      height: 140px;
+      display: flex;
+      position: relative;
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+
+      &__remove {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 20px;
+        line-height: 20px;
+      }
+
+      &__image {
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-right: 8px;
+      }
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &__title {
+        @include body-md;
+        line-height: normal;
+        max-width: 120px;
+        margin-bottom: 5px;
+      }
+
+      &__properties {
+        @include body-md;
+        line-height: 157%;
+        color: $clr-dark-gray;
+      }
+
+      &__price {
+        @include body-md;
+        line-height: 157%;
+      }
+
+      &__primary-price {
+        color: $clr-accent;
+        display: inline-block;
+
+        &--crossed {
+          color: $clr-dark-gray;
+          text-decoration: line-through;
+        }
+      }
+
+      &__discounted-price {
+        color: $clr-accent;
+        display: inline-block;
+        margin-left: 10px;
+      }
+
+      &__qty {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+
+        label {
+          @include body-sm;
+          color: $clr-dark-gray;
+          margin-right: 8px;
+        }
+
+        button {
+          @include body-md;
+          color: $clr-dark-gray;
+
+          &:disabled {
+            cursor: not-allowed;
+            color: $clr-gray;
+          }
+        }
+
+        input {
+          @include body-md;
+          color: $clr-dark-gray;
+          width: 20px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &__loader {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__empty {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &-msg {
+      @include heading-5;
+    }
+
+    &-action {
+      @include heading-5;
+      color: $clr-accent;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        margin-right: 15px;
+      }
+
+      svg {
+        rotate: -90deg;
+      }
+    }
+  }
+
+  &__footer {
+    border-top: 1px solid $clr-gray;
+    flex: 0 0 auto;
+    padding: 20px 36px 26px;
+
+    &-info {
+      @include heading-5;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      margin-bottom: 21px;
+    }
+
+    &-total-price {
+      margin-left: auto;
+
+      &--crossed {
+        text-decoration: line-through;
+        color: $clr-dark-gray;
+      }
+    }
+
+    &-discounted-price {
+      margin-left: 5px;
+    }
+
+    &-action {
+      display: flex;
+    }
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .shopping-cart {
+    width: 100%;
+
+    &__close {
+      display: block;
+    }
+
+    &__wrapper {
+      padding: 13px 16px 0;
+    }
+
+    &__title {
+      text-align: center;
+    }
+  }
+}

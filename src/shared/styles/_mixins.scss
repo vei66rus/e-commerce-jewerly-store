@@ -1,0 +1,70 @@
+@use './variables' as *;
+@use './typography' as *;
+
+@mixin primary-link {
+  font-weight: $fw-medium;
+  font-size: 16px;
+  line-height: 200%;
+  color: $clr-black;
+}
+
+@mixin seconady-link {
+  font-weight: $fw-regular;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: $clr-dark-gray;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: $clr-black;
+  }
+}
+
+@mixin delails-link {
+  font-weight: $fw-medium;
+  color: $clr-accent;
+  font-size: 20px;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: $clr-black;
+  }
+}
+
+@mixin external-icon-link {
+  color: $clr-dark-gray;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: $clr-black;
+  }
+}
+
+@mixin btn-lg-transparent(
+  $base-color: $clr-white,
+  $inverted-color: $clr-black
+) {
+  border: 2px solid $base-color;
+  border-radius: 6px;
+  padding: 13px 29px;
+  background-color: transparent;
+  font-weight: $fw-bold;
+  font-size: 21px;
+  color: $base-color;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+
+  &:hover {
+    background-color: $base-color;
+    color: $inverted-color;
+  }
+
+  @media (max-width: $bp-mobile) {
+    font-weight: $fw-regular;
+    font-size: 12px;
+    line-height: 167%;
+    padding: 6px 9px;
+    border-radius: 4px;
+    border-width: 1px;
+  }
+}

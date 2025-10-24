@@ -1,0 +1,23 @@
+$loader-duration: 1s;
+$loader-size: 48px;
+$loader-width: 8px;
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  background-color: transparent;
+  box-sizing: border-box;
+  border: $loader-width solid $clr-light-gray;
+  width: $loader-size;
+  height: $loader-size;
+  border-radius: 50%;
+  border-top-color: $clr-gray;
+  animation: spin $loader-duration infinite linear;
+}

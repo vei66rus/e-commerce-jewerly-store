@@ -1,0 +1,1 @@
+export { default as useFavoritesStore } from './model/useFavoritesStore';

@@ -1,0 +1,140 @@
+.header {
+  position: relative;
+
+  &__container {
+    padding-top: 64px;
+    padding-bottom: 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $clr-gray;
+    position: relative;
+  }
+
+  &__logo {
+    margin-right: auto;
+    margin-top: 8px;
+    margin-bottom: 5px;
+  }
+
+  &__menu {
+    &-list {
+      display: flex;
+      align-items: center;
+    }
+
+    &-item {
+      &:not(:last-child) {
+        margin-right: 64px;
+      }
+    }
+
+    &-link {
+      @include primary-link;
+      position: relative;
+
+      &.router-link-active::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: $clr-black;
+        left: 0;
+        bottom: -28px;
+      }
+    }
+  }
+
+  &__divider {
+    height: 17px;
+    width: 1px;
+    margin-right: 48px;
+    margin-left: 48px;
+    background-color: $clr-dark-gray;
+  }
+
+  &__actions {
+    &-link {
+      position: relative;
+    }
+
+    &-counter {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      border: 1px solid black;
+      height: 11px;
+      width: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 7px;
+      color: black;
+      font-weight: $fw-bold;
+      background-color: white;
+    }
+
+    &-list {
+      display: flex;
+      align-items: center;
+    }
+
+    &-item {
+      &:first-child {
+        margin-right: 39px;
+      }
+
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+  &__notification {
+    position: absolute;
+    top: 100%;
+    z-index: 20;
+  }
+
+  &__mobile-menu {
+    position: absolute;
+    z-index: 40;
+    top: 100%;
+    right: -16px;
+    height: calc(100dvh - 100%);
+    width: 100dvw;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .header {
+    &__container {
+      border-bottom: none;
+      padding-top: 15px;
+    }
+
+    &__menu {
+      display: none;
+    }
+
+    &__divider {
+      display: none;
+    }
+
+    &__actions {
+      &-item {
+        &:first-child {
+          margin-right: 16px;
+        }
+
+        &:nth-child(2) {
+          display: none;
+        }
+
+        &:last-child {
+          display: block;
+        }
+      }
+    }
+  }
+}

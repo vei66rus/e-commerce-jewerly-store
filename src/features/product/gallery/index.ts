@@ -1,0 +1,1 @@
+export { default as AppImagesGallery } from './ui/AppImagesGallery.vue';

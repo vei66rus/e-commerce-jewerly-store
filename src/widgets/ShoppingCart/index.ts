@@ -1,0 +1,1 @@
+export { default as AppShoppingCart } from './ui/AppShoppingCart.vue';

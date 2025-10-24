@@ -1,0 +1,39 @@
+.mobile-menu {
+  background-color: $clr-white;
+  box-sizing: border-box;
+  padding: 7px 16px;
+
+  &__links {
+    padding-bottom: 40px;
+    border-bottom: 1px solid $clr-gray;
+    margin-bottom: 24px;
+  }
+
+  &__actions,
+  &__links {
+    &-item {
+      @include heading-3;
+      & {
+        font-size: 20px;
+      }
+      &:not(:last-child) {
+        margin-bottom: 23px;
+      }
+    }
+  }
+
+  &__actions {
+    &-item {
+      a,
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+
+        svg {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

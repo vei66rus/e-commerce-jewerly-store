@@ -1,0 +1,164 @@
+.review-form {
+  &__title {
+    @include heading-3;
+    & {
+      margin-bottom: 11px;
+    }
+  }
+
+  &__note {
+    @include body-md;
+    color: $clr-dark-gray;
+    & {
+      margin-bottom: 31px;
+    }
+  }
+
+  &--invalid {
+    .review-form__note {
+      color: red;
+    }
+  }
+
+  &__text-input {
+    padding-top: 15px;
+    position: relative;
+    margin-bottom: 31px;
+
+    label {
+      @include body-md;
+      color: $clr-dark-gray;
+      display: block;
+      position: absolute;
+      bottom: 13px;
+      left: 0;
+      transition: all 0.2s ease-in-out;
+      z-index: -1;
+    }
+
+    input {
+      @include heading-5;
+      box-sizing: border-box;
+      display: block;
+      padding-top: 5px;
+      padding-bottom: 10px;
+      width: 100%;
+      border-bottom: 1px solid $clr-gray;
+    }
+
+    &:has(input:focus),
+    &--dirty {
+      label {
+        bottom: 42px;
+      }
+    }
+
+    &--invalid {
+      label {
+        color: red;
+      }
+    }
+  }
+
+  &__checkbox-input {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 46px;
+
+    input {
+      width: 18px;
+      height: 18px;
+      box-sizing: border-box;
+      border: 1px solid $clr-black;
+      margin-right: 8px;
+      position: relative;
+      flex-shrink: 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 3px;
+        top: 3px;
+        width: 10px;
+        height: 10px;
+        background-color: $clr-black;
+        display: none;
+      }
+
+      &:checked {
+        &::after {
+          display: block;
+        }
+      }
+    }
+
+    label {
+      @include body-sm;
+      color: $clr-dark-gray;
+      cursor: pointer;
+    }
+  }
+
+  &__rating-input {
+    margin-bottom: 46px;
+
+    span {
+      @include body-md;
+      color: $clr-dark-gray;
+      margin-bottom: 13px;
+      display: block;
+    }
+
+    &--invalid {
+      span {
+        color: red;
+      }
+    }
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .review-form {
+    &__note {
+      @include body-sm;
+
+      & {
+        margin-bottom: 10px;
+      }
+    }
+
+    &__text-input {
+      margin-bottom: 10px;
+
+      label {
+        @include body-sm;
+      }
+
+      input {
+        @include body-sm;
+        padding-bottom: 5px;
+      }
+
+      &:has(input:focus),
+      &--dirty {
+        label {
+          bottom: 30px;
+        }
+      }
+    }
+
+    &__checkbox-input {
+      margin-bottom: 10px;
+    }
+
+    &__rating-input {
+      margin-bottom: 15px;
+
+      span {
+        @include body-sm;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

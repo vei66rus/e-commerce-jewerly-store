@@ -1,0 +1,1 @@
+export { default as sumbitReviewKey } from './model/submitReviewInjectionKey';

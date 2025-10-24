@@ -1,0 +1,184 @@
+.product-info {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    @include heading-2;
+    & {
+      margin-bottom: 23px;
+    }
+  }
+
+  &__price {
+    @include heading-4;
+    color: $clr-accent;
+
+    &-raw {
+      &--crossed {
+        text-decoration: line-through;
+        color: $clr-gray;
+      }
+    }
+
+    &-discounted {
+      margin-left: 10px;
+    }
+  }
+
+  &__inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 23px;
+
+    &-stars {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      margin-right: 24px;
+    }
+
+    &-star {
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+
+    &-info {
+      @include heading-5;
+      color: $clr-dark-gray;
+    }
+  }
+
+  &__about {
+    margin-bottom: 48px;
+
+    span {
+      @include heading-5;
+      color: $clr-dark-gray;
+    }
+  }
+
+  &__actions {
+    display: flex;
+
+    &-counter {
+      margin-right: 23px;
+    }
+  }
+
+  &__favorite {
+    margin-bottom: 38px;
+
+    &-btn {
+      color: $clr-dark-gray;
+      transition: color 0.2s ease-in-out;
+
+      &--active {
+        color: $clr-black;
+      }
+    }
+  }
+
+  &__specifications {
+    &-items {
+      @include heading-5;
+    }
+
+    &-item {
+      color: $clr-dark-gray;
+
+      span {
+        color: $clr-black;
+        margin-right: 12px;
+      }
+    }
+  }
+}
+
+@media (max-width: $bp-lg) {
+  .product-info {
+    &__price {
+      margin-bottom: 23px;
+    }
+
+    &__inner-wrapper {
+      display: block;
+      margin: 0;
+    }
+
+    &__about {
+      margin-bottom: 23px;
+    }
+
+    &__actions {
+      margin-bottom: 23px;
+    }
+
+    &__favorite {
+      margin-bottom: 23px;
+    }
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .product-info {
+    &__rating {
+      display: none;
+    }
+
+    &__inner-wrapper {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    &__about {
+      span {
+        @include body-sm;
+
+        & {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-bottom: 6px;
+        }
+      }
+
+      &--open {
+        span {
+          display: inline-block;
+        }
+
+        button {
+          svg {
+            rotate: 180deg;
+          }
+        }
+      }
+
+      button {
+        @include body-sm;
+
+        & {
+          color: $clr-accent;
+          display: flex;
+          align-items: center;
+          justify-content: start;
+        }
+
+        svg {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

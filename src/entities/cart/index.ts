@@ -1,0 +1,1 @@
+export { default as useCartStore } from './model/useCartStore';

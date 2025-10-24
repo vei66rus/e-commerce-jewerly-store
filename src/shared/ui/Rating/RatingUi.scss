@@ -1,0 +1,13 @@
+.rating-ui {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+  &__star {
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}
